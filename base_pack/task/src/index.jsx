@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import './search.scss';
+import './comment.scss';
 import App from './App.jsx';
-import Search from './Search.jsx';
+import Comment from './Comment.jsx';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Search name="Tom" />, rootElement);
+ReactDOM.render(<Comment />, rootElement);
