@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App.jsx';
-import Profile from './Profile.jsx';
+import Counter from './Counter.jsx';
 
 const rootElement = document.querySelector('#root');
 
-const userData = {
-  firstName: 'James',
-  lastName: 'Bond',
-  birthDate: '1991-01-17T11:11:11.819Z',
-  birthPlace: 'London',
-};
-
-ReactDOM.render(<Profile userData={userData} />, rootElement);
+ReactDOM.render(
+  <>
+    <Counter start={5} interval={2000} />
+    <Counter start={12} interval={100} />
+    <Counter start={-21} interval={1000} />
+  </>,
+  rootElement,
+);
