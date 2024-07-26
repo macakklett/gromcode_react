@@ -1,16 +1,12 @@
 import React from 'react';
+import Counter from './Counter.jsx';
 
 const App = () => {
   return (
     <>
-      <h1 className="title">Todo List</h1>
-      <main className="todo-list">
-        <div className="actions">
-          <input className="task-input" type="text" />
-          <button className="btn create-task-btn">Create</button>
-        </div>
-        <ul className="list"></ul>
-      </main>
+      <Counter start={5} interval={2000} />
+      <Counter start={12} interval={100} />
+      <Counter start={-21} interval={1000} />
     </>
   );
 };
