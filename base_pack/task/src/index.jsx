@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Auth from './Auth.jsx';
+import Mailbox from './Mailbox';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Auth />, rootElement);
+ReactDOM.render(<Mailbox unReadMessages={['hi', 'where', 'are', 'you']} />, rootElement);
