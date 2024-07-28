@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+const colorsArr = [
+  { rgb: 'rgb(255, 127, 80)', colorText: 'Coral' },
+  { rgb: 'rgb(0, 255, 255)', colorText: 'Aqua' },
+  { rgb: 'rgb(255, 228, 196)', colorText: 'Bisque' },
+];
 
-const CORAL = 'Coral';
-const AQUA = 'Aqua';
-const BISQUE = 'Bisque';
 class ColorPicker extends Component {
   constructor(props) {
     super(props);
@@ -11,8 +13,11 @@ class ColorPicker extends Component {
     };
   }
 
-  onMouseEnterHandler = colorText => {
-    this.setState({ color: colorText });
+  onMouseEnterHandler = e => {
+    const colorEl = colorsArr.find(
+      el => el.rgb === window.getComputedStyle(e.target).backgroundColor,
+    );
+    this.setState({ color: colorEl.colorText });
   };
 
   onMouseLeaveHandler = e => {
@@ -26,17 +31,17 @@ class ColorPicker extends Component {
         <div>
           <button
             className="picker__button picker__button_coral"
-            onMouseEnter={() => this.onMouseEnterHandler(CORAL)}
+            onMouseEnter={this.onMouseEnterHandler}
             onMouseLeave={this.onMouseLeaveHandler}
           ></button>
           <button
             className="picker__button picker__button_aqua"
-            onMouseEnter={() => this.onMouseEnterHandler(AQUA)}
+            onMouseEnter={this.onMouseEnterHandler}
             onMouseLeave={this.onMouseLeaveHandler}
           ></button>
           <button
             className="picker__button picker__button_bisque"
-            onMouseEnter={() => this.onMouseEnterHandler(BISQUE)}
+            onMouseEnter={this.onMouseEnterHandler}
             onMouseLeave={this.onMouseLeaveHandler}
           ></button>
         </div>
