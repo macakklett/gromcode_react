@@ -8,20 +8,20 @@ class Page extends Component {
     text: null,
   };
 
-  onClickHandler = text => this.setState({ text });
+  setText = text => this.setState({ text });
 
   render() {
     return (
       <div className="page">
         <Info info={this.state.text} />
         <div className="actions">
-          <button className="btn" onClick={() => this.onClickHandler(text1)}>
+          <button className="btn" onClick={() => this.setText(text1)}>
             IPhone 13
           </button>
-          <button className="btn" onClick={() => this.onClickHandler(text2)}>
+          <button className="btn" onClick={() => this.setText(text2)}>
             IPhone 13 Pro
           </button>
-          <button className="btn" onClick={() => this.onClickHandler(null)}>
+          <button className="btn" onClick={() => this.setText(null)}>
             Clear
           </button>
         </div>
