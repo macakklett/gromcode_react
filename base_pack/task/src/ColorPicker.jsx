@@ -14,10 +14,10 @@ class ColorPicker extends Component {
   }
 
   onMouseEnterHandler = e => {
-    const colorEl = colorsArr.filter(
+    const colorEl = colorsArr.find(
       el => el.rgb === window.getComputedStyle(e.target).backgroundColor,
     );
-    this.setState({ color: colorEl[0].colorText });
+    this.setState({ color: colorEl.colorText });
   };
 
   onMouseLeaveHandler = e => {
