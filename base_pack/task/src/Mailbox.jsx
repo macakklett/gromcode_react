@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Mailbox = ({ unReadMessages }) => {
+const Mailbox = ({ unreadMessages }) => {
   return (
     <div className="mailbox">
       <span className="mailbox__text">Mailbox</span>
-      {unReadMessages.length > 0 && <span className="mailbox__count">{unReadMessages.length}</span>}
+      {unreadMessages.length > 0 && <span className="mailbox__count">{unreadMessages.length}</span>}
     </div>
   );
 };
