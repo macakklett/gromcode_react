@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Counter extends Component {
+class Colors extends Component {
   setBodyBackgroundColor = color => (document.body.style.backgroundColor = color);
 
   render() {
@@ -26,4 +26,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default Colors;
