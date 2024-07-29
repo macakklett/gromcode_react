@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import User from './User';
+import Pagination from './Pagination';
 
 export class UsersList extends Component {
   state = {
-    sortingType: null,
+    currentPage: 1,
+    itemsPerPage: 3,
   };
 
-  onSetSorting = () =>
-    this.setState({ sortingType: this.state.sortingType === 'asc' ? 'desc' : 'asc' });
+  goPrev = () => this.setState({ currentPage: this.state.currentPage - 1 });
+  goNext = () => this.setState({ currentPage: this.state.currentPage + 1 });
 
   render() {
-    const sortedList = this.state.sortingType
-      ? this.props.users
-          .slice()
-          .sort((a, b) => (this.state.sortingType === 'asc' ? a.age - b.age : b.age - a.age))
-      : this.props.users;
+    const currentUserIndex = this.state.itemsPerPage * (this.state.currentPage - 1);
+    console.log(currentUserIndex);
+    const currentList =
+      this.state.currentPage === 1
+        ? this.props.users.slice(0, this.state.itemsPerPage)
+        : this.props.users.slice(currentUserIndex, currentUserIndex + this.state.itemsPerPage);
 
     return (
       <div>
-        <button className="btn" onClick={this.onSetSorting}>
-          {this.state.sortingType || '-'}
-        </button>
+        <Pagination
+          goPrev={this.goPrev}
+          goNext={this.goNext}
+          currentPage={this.state.currentPage}
+          totalItems={this.props.users.length}
+          itemsPerPage={this.state.itemsPerPage}
+        />
         <ul className="users">
-          {sortedList.map(user => (
+          {currentList.map(user => (
             <User key={user.id} {...user} />
           ))}
         </ul>
