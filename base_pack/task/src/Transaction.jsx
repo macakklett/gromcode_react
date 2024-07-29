@@ -4,6 +4,7 @@ import moment from 'moment';
 const Transaction = ({ from, to, amount, rate, time }) => {
   const date = moment(time).format('DD MMM');
   const transactionTime = moment(time).format('HH:mm');
+  const formattedAmount = new Intl.NumberFormat('en-GB').format(amount);
 
   return (
     <li className="transaction">
@@ -13,7 +14,7 @@ const Transaction = ({ from, to, amount, rate, time }) => {
         {from} → {to}
       </span>
       <span className="transaction__rate">{rate}</span>
-      <span className="transaction__amount">{amount}</span>
+      <span className="transaction__amount">{formattedAmount}</span>
     </li>
   );
 };
