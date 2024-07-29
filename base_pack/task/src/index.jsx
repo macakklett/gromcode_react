@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import NumbersList from './NumbersList';
+import UsersList from './UsersList';
 
 const users = [
   {
@@ -28,4 +28,4 @@ const users = [
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<NumbersList users={users} />, rootElement);
+ReactDOM.render(<UsersList users={users} />, rootElement);
