@@ -13,7 +13,6 @@ export class UsersList extends Component {
 
   render() {
     const currentUserIndex = this.state.itemsPerPage * (this.state.currentPage - 1);
-    console.log(currentUserIndex);
     const currentList =
       this.state.currentPage === 1
         ? this.props.users.slice(0, this.state.itemsPerPage)
