@@ -11,11 +11,13 @@ export class Life extends Component {
   };
 
   shouldComponentUpdate = (nextProps, nextState) => {
+    console.log(nextProps, nextState);
     console.log('decide to render or not to render');
     return nextProps.number % 2;
   };
 
   componentDidUpdate = (prevProps, prevState) => {
+    console.log(prevProps, prevState);
     console.log('some updates based on new props');
   };
 
