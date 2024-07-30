@@ -5,4 +5,4 @@ import Life from './Life';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Life />, rootElement);
+ReactDOM.render(<Life number={10} />, rootElement);

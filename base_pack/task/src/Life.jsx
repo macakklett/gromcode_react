@@ -12,7 +12,7 @@ export class Life extends Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     console.log('decide to render or not to render');
-    return true;
+    return nextProps.number % 2;
   };
 
   componentDidUpdate = (prevProps, prevState) => {
