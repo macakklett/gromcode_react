@@ -31,9 +31,9 @@ class Demo extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.show()}>Show</button>
-        <button onClick={() => this.hide()}>Hide</button>
-        <button onClick={() => this.update()}>Update</button>
+        <button onClick={this.show}>Show</button>
+        <button onClick={this.hide}>Hide</button>
+        <button onClick={this.update}>Update</button>
         {this.state.visible && <Life number={this.state.number} />}
       </div>
     );
