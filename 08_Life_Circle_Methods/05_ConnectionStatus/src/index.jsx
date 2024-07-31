@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Search from './Search.jsx';
+import ConnectionStatus from './ConnectionStatus.jsx';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Search />, rootElement);
+ReactDOM.render(<ConnectionStatus />, rootElement);
