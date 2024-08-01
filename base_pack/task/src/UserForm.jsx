@@ -21,16 +21,16 @@ export class UserForm extends Component {
     });
   };
 
-  onSubmit = e => {
+  onSubmitHandler = e => {
     e.preventDefault();
-    this.props.createUser(this.state);
+    this.props.onSubmit(this.state);
   };
 
   render() {
     const { name, student, occupation, about } = this.state;
 
     return (
-      <form className="login-form" onSubmit={this.onSubmit}>
+      <form className="login-form" onSubmit={this.onSubmitHandler}>
         <h1 className="form-title">Profile</h1>
 
         <div className="form-control">

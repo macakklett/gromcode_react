@@ -6,7 +6,7 @@ const createUser = userData => {
 };
 
 const App = () => {
-  return <UserForm createUser={createUser} />;
+  return <UserForm onSubmit={createUser} />;
 };
 
 export default App;
