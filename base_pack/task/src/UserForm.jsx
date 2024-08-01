@@ -54,7 +54,7 @@ export class UserForm extends Component {
           <input
             className="form-input"
             onChange={this.onChangeHandler}
-            value={student}
+            checked={student}
             type="checkbox"
             id="student"
             name="student"
