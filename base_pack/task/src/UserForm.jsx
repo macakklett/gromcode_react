@@ -21,7 +21,7 @@ export class UserForm extends Component {
     });
   };
 
-  onSubmitForm = e => {
+  onSubmit = e => {
     e.preventDefault();
     this.props.createUser(this.state);
   };
@@ -30,7 +30,7 @@ export class UserForm extends Component {
     const { name, student, occupation, about } = this.state;
 
     return (
-      <form className="login-form" onSubmit={this.onSubmitForm}>
+      <form className="login-form" onSubmit={this.onSubmit}>
         <h1 className="form-title">Profile</h1>
 
         <div className="form-control">
