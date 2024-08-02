@@ -2,8 +2,8 @@ import React from 'react';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-const ProductTable = () => {
-  const { filterText, inStockOnly, products } = this.props;
+const ProductTable = props => {
+  const { filterText, inStockOnly, products } = props;
 
   const rows = [];
   let lastCategory = null;

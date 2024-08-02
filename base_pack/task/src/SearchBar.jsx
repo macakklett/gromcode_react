@@ -1,15 +1,15 @@
 import React from 'react';
 
-const SearchBar = () => {
-  handleFilterTextChange = e => {
-    this.props.onFilterTextChange(e.target.value);
+const SearchBar = props => {
+  const handleFilterTextChange = e => {
+    props.onFilterTextChange(e.target.value);
   };
 
-  handleInStockChange = e => {
-    this.props.onInStockChange(e.target.checked);
+  const handleInStockChange = e => {
+    props.onInStockChange(e.target.checked);
   };
 
-  const { filterText, inStockOnly } = this.props;
+  const { filterText, inStockOnly } = props;
 
   return (
     <form>
@@ -17,11 +17,11 @@ const SearchBar = () => {
         type="text"
         placeholder="Search..."
         value={filterText}
-        onChange={this.handleFilterTextChange}
+        onChange={handleFilterTextChange}
       />
       <p>
-        <input type="checkbox" checked={inStockOnly} onChange={this.handleInStockChange} /> Only
-        show products in stock
+        <input type="checkbox" checked={inStockOnly} onChange={handleInStockChange} /> Only show
+        products in stock
       </p>
     </form>
   );
