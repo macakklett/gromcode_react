@@ -4,7 +4,7 @@ import UserProfile from './UserProfile';
 
 export class App extends Component {
   state = {
-    user: null,
+    userData: null,
   };
 
   componentDidMount = () => {
@@ -16,24 +16,24 @@ export class App extends Component {
       .then(response => response.json())
       .then(data =>
         this.setState({
-          user: data,
+          userData: data,
         }),
       );
   };
 
   render() {
-    if (!this.state.user) {
+    if (!this.state.userData) {
       return null;
     }
 
-    const { user } = this.state;
+    const { userData } = this.state;
 
     return (
       <div className="page">
         <header className="header">
-          <UserMenu userData={user} />
+          <UserMenu userData={userData} />
         </header>
-        <UserProfile userData={user} />
+        <UserProfile userData={userData} />
       </div>
     );
   }
