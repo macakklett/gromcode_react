@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Expand = ({ children, title, isOpen, onToggleText }) => {
-  const iconClass = isOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+class Expand extends Component {
+  state = {
+    isOpen: false,
+  };
 
-  return (
-    <div className="expand border">
-      <div className="expand__header">
-        <span className="expand__title">{title}</span>
-        <button className="expand__toggle-btn" onClick={onToggleText}>
-          <i className={iconClass}></i>
-        </button>
+  onToggleText = () => this.setState({ isOpen: !this.state.isOpen });
+
+  render() {
+    const { isOpen } = this.state;
+    const iconClass = isOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+
+    return (
+      <div className="expand border">
+        <div className="expand__header">
+          <span className="expand__title">{this.props.title}</span>
+          <button className="expand__toggle-btn" onClick={this.onToggleText}>
+            <i className={iconClass}></i>
+          </button>
+        </div>
+        {isOpen && <div className="expand__content">{this.props.children}</div>}
       </div>
-      <div className="expand__content">{children}</div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Expand;
