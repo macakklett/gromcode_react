@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
-import ShoppingCart from './ShoppingCart';
-import Profile from './Profile';
+import Numbers from './Numbers';
+import OddNumbers from './OddNumbers';
+import EvenNumbers from './EvenNumbers';
 
 export class App extends Component {
   state = {
-    firstName: 'Tom',
-    lastName: 'Crouse',
+    number: 0,
   };
 
-  onChange = e => {
-    const { name, value } = e.target;
+  componentDidMount = () => {
+    this.intervalId = setInterval(() => this.setState({ number: this.state.number + 1 }), 1000);
+  };
 
-    this.setState({
-      ...this.state,
-      [name]: value,
-    });
+  componentWillUnmount = () => {
+    clearInterval(this.intervalId);
   };
 
   render() {
-    const { firstName, lastName } = this.state;
+    const { number } = this.state;
 
     return (
-      <div className="page">
-        <h1 className="title">
-          Hello, {firstName} {lastName}
-        </h1>
-        <main className="content">
-          <ShoppingCart userName={firstName} />
-          <Profile userData={this.state} onChange={this.onChange} />
-        </main>
+      <div className="app">
+        <OddNumbers number={number} />
+        <EvenNumbers number={number} />
+        <Numbers title="All numbers" number={number} />
+        <Numbers title="Just 17" number={17} />
       </div>
     );
   }
