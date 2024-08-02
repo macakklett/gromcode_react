@@ -11,7 +11,7 @@ const Expand = ({ children, title, isOpen, onToggleText }) => {
           <i className={iconClass}></i>
         </button>
       </div>
-      {isOpen && <div className="expand__content">{children}</div>}
+      <div className="expand__content">{children}</div>
     </div>
   );
 };
