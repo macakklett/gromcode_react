@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class ProductCategoryRow extends Component {
-  render() {
-    const { category } = this.props;
+const ProductCategoryRow = () => {
+  const { category } = this.props;
 
-    return (
-      <tr>
-        <th colSpan="2">{category}</th>
-      </tr>
-    );
-  }
-}
+  return (
+    <tr>
+      <th colSpan="2">{category}</th>
+    </tr>
+  );
+};
 
 export default ProductCategoryRow;
