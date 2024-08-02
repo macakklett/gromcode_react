@@ -15,11 +15,9 @@ export class App extends Component {
         <button className="btn" onClick={this.onShow}>
           Show dialog
         </button>
-        {this.state.isOpen && (
-          <Dialog title="Recommendation" onClose={this.onClose}>
-            <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
-          </Dialog>
-        )}
+        <Dialog isOpen={this.state.isOpen} title="Recommendation" onClose={this.onClose}>
+          <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
+        </Dialog>
       </div>
     );
   }
