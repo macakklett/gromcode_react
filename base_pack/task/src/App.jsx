@@ -3,13 +3,9 @@ import UserMenu from './UserMenu';
 import UserProfile from './UserProfile';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: null,
-    };
-  }
+  state = {
+    user: null,
+  };
 
   componentDidMount = () => {
     this.fetchDataUser(this.props.userId);

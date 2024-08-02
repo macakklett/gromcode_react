@@ -5,7 +5,7 @@ const UserProfile = props => {
 
   return (
     <div className="user">
-      <img src={avatar_url} className="user__avatar" alt="User Avatar"></img>
+      <img src={avatar_url} className="user__avatar" alt="User Avatar" />
       <div className="user__info">
         <span className="user__name">{name}</span>
         <span className="user__location">{location}</span>
