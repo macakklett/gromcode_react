@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import Dialog from './Dialog';
+import Expand from './Expand';
 
 export class App extends Component {
   state = {
     isOpen: false,
   };
 
-  onShow = () => this.setState({ isOpen: true });
-  onClose = () => this.setState({ isOpen: false });
+  onToggleText = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
     return (
       <div className="app">
-        <button className="btn" onClick={this.onShow}>
-          Show dialog
-        </button>
-        <Dialog isOpen={this.state.isOpen} title="Recommendation" onClose={this.onClose}>
-          <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
-        </Dialog>
+        <Expand title="Hooks" isOpen={this.state.isOpen} onToggleText={this.onToggleText}>
+          <p>
+            Hooks are a new addition in React 16.8. They let you use state and other React features
+            without writing a class.
+          </p>
+        </Expand>
       </div>
     );
   }
