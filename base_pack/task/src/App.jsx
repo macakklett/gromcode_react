@@ -1,16 +1,28 @@
 import React from 'react';
-import User from './User';
-import City from './City';
-import { withDataLoader } from './withDataLoader';
-
-const MyCity = withDataLoader('https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/cities/1')(City);
-
-const SuperUser = withDataLoader('https://api.github.com/users/octocat')(User);
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Products from './Products';
+import Contacts from './Contacts';
+import PageNotFound from './PageNotFound';
 
 const App = () => (
   <div className="page">
-    <MyCity />
-    <SuperUser />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/products">
+          <Products />
+        </Route>
+        <Route path="/contacts">
+          <Contacts />
+        </Route>
+        <Route path="*">
+          <PageNotFound />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </div>
 );
 
