@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import ThemedButton from './ThemedButton';
-import { themes, ThemeContext } from './themes-context';
+import React, { useState } from 'react';
+import Header from './Header';
+import { UserDataContext } from './user-data-context';
 
-class App extends Component {
-  state = {
-    theme: themes.light,
-  };
+const App = () => {
+  const [userData, setUserData] = useState({
+    name: 'Nikola Tesla',
+    avatar_url: 'https://avatars3.githubusercontent.com/u10001',
+  });
 
-  toggleTheme = () => {
-    const newTheme = this.state.theme === themes.light ? themes.dark : themes.light;
-    this.setState({ theme: newTheme });
-  };
-
-  render() {
-    return (
-      <div>
-        <ThemeContext.Provider value={this.state.theme}>
-          <ThemedButton onClick={this.toggleTheme}>Dynamic Theme</ThemedButton>
-        </ThemeContext.Provider>
-
-        <ThemedButton onClick={this.toggleTheme}>Default Theme</ThemedButton>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="page">
+      <UserDataContext.Provider value={userData}>
+        <Header />
+      </UserDataContext.Provider>
+    </div>
+  );
+};
 
 export default App;
