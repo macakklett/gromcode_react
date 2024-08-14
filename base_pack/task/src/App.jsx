@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
-import Clock from './Clock.jsx';
+import React, { Component } from 'react';
+import ThemedButton from './ThemedButton';
+import { themes, ThemeContext } from './themes-context';
 
-const App = () => {
-  const [isToggle, setIsToggle] = useState(true);
+class App extends Component {
+  state = {
+    theme: themes.light,
+  };
 
-  return (
-    <>
+  toggleTheme = () => {
+    const newTheme = this.state.theme === themes.light ? themes.dark : themes.light;
+    this.setState({ theme: newTheme });
+  };
+
+  render() {
+    return (
       <div>
-        <button onClick={() => setIsToggle(!isToggle)}>Toggle</button>
-      </div>
+        <ThemeContext.Provider value={this.state.theme}>
+          <ThemedButton onClick={this.toggleTheme}>Dynamic Theme</ThemedButton>
+        </ThemeContext.Provider>
 
-      {isToggle && (
-        <>
-          <Clock location="London" offset={0} />
-          <Clock location="Kiev" offset={2} />
-          <Clock location="New York" offset={5} />
-        </>
-      )}
-    </>
-  );
-};
+        <ThemedButton onClick={this.toggleTheme}>Default Theme</ThemedButton>
+      </div>
+    );
+  }
+}
 
 export default App;
