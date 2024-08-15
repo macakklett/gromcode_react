@@ -1,33 +1,33 @@
-import { createStore } from 'redux';
+import { store, decrement, increment, reset } from './store';
+import './index.scss';
 
-const INCREMENT = 'COUNTER/INCREMENT';
-const DECREMENT = 'COUNTER/DECREMENT';
+const counterActions = document.querySelector('.counter__actions');
+const counterResult = document.querySelector('.counter__result');
 
-export const increment = () => {
-  return {
-    type: INCREMENT,
-  };
-};
+const handleActions = e => {
+  switch (e.target.closest('.counter__button').dataset.action) {
+    case 'decrement':
+      store.dispatch(decrement());
+      return;
 
-export const decrement = () => {
-  return {
-    type: DECREMENT,
-  };
-};
+    case 'increment':
+      store.dispatch(increment());
+      return;
 
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-
-    case DECREMENT:
-      return state - 1;
+    case 'reset':
+      store.dispatch(reset());
+      return;
 
     default:
-      return state;
+      return null;
   }
 };
 
-export const store = createStore(counterReducer);
-// store.dispatch(increment());
-// console.log(store.getState());
+store.subscribe(() => {
+  const state = store.getState();
+  const history = state.join('');
+  const result = state.reduce((acc, el) => acc + Number(el), 0);
+  counterResult.textContent = state.length > 0 ? `${history} = ${result}` : '';
+});
+
+counterActions.addEventListener('click', handleActions);
