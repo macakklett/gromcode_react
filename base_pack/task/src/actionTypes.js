@@ -1,0 +1,2 @@
+export const ADD_USER = 'ADD_USER_TO_USERS_LIST';
+export const DELETE_USER = 'DELETE_USER_FROM_USERS_LIST';
