@@ -3,13 +3,13 @@ import { ADD_USER, DELETE_USER, UPDATE_USER } from './actionTypes';
 export const addUser = user => {
   return {
     type: ADD_USER,
-    payload: user,
+    payload: { user },
   };
 };
 
-export const updateUser = (user, userId) => {
+export const updateUser = (userId, user) => {
   return {
-    type: ADD_USER,
+    type: UPDATE_USER,
     payload: {
       user,
       userId,
@@ -20,6 +20,6 @@ export const updateUser = (user, userId) => {
 export const deleteUser = userId => {
   return {
     type: DELETE_USER,
-    payload: userId,
+    payload: { userId },
   };
 };

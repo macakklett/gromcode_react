@@ -7,7 +7,7 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_USER:
-      return { ...state, usersList: [...state.usersList, action.payload] };
+      return { ...state, usersList: [...state.usersList, action.payload.user] };
 
     case UPDATE_USER:
       return {
@@ -29,7 +29,7 @@ const usersReducer = (state = initialState, action) => {
     case DELETE_USER:
       return {
         ...state,
-        usersList: [...state.usersList.filter(user => user.id !== action.payload)],
+        usersList: [...state.usersList.filter(user => user.id !== action.payload.userId)],
       };
 
     default:

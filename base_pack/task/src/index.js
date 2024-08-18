@@ -56,7 +56,5 @@ store.subscribe(() => {
     list.appendChild(listItem);
   });
 
-  const history = state.counter.join('');
-  const result = state.counter.reduce((acc, el) => acc + Number(el), 0);
-  counterResult.textContent = state.counter.length > 0 ? `${history} = ${result}` : '';
+  counterResult.textContent = state.counter;
 });

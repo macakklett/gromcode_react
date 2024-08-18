@@ -1,15 +1,15 @@
 import { INCREMENT, DECREMENT, RESET } from './actionTypes';
 
-const counterReducer = (state = [], action) => {
+const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
-      return [...state, '+1'];
+      return state + 1;
 
     case DECREMENT:
-      return [...state, '-1'];
+      return state - 1;
 
     case RESET:
-      return [];
+      return 0;
 
     default:
       return state;
