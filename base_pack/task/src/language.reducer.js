@@ -1,9 +1,13 @@
 import { SET_LANGUAGE } from './actionsTypes';
 
-const languageReducer = (state = 'en', action) => {
+const initialState = {
+  language: 'en',
+};
+
+const languageReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LANGUAGE:
-      return action.payload.language;
+      return { language: action.payload.language };
 
     default:
       return state;
