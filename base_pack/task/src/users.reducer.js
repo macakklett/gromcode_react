@@ -20,6 +20,8 @@ const usersReducer = (state = initialState, action) => {
                 ...action.payload.user,
               };
             }
+
+            return user;
           }),
         ],
       };
