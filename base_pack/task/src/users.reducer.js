@@ -1,13 +1,28 @@
-import { ADD_USER, DELETE_USER } from './actionTypes';
+import { ADD_USER, DELETE_USER, UPDATE_USER } from './actionTypes';
 
 const initialState = {
   usersList: [],
 };
 
-export const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_USER:
       return { ...state, usersList: [...state.usersList, action.payload] };
+
+    case UPDATE_USER:
+      return {
+        ...state,
+        usersList: [
+          ...state.usersList.map(user => {
+            if (user.id === action.payload.userId) {
+              return {
+                ...user,
+                ...action.payload.user,
+              };
+            }
+          }),
+        ],
+      };
 
     case DELETE_USER:
       return {
@@ -19,3 +34,5 @@ export const usersReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default usersReducer;
