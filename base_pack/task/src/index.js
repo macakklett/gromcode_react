@@ -1,18 +1,15 @@
-import { store, decrement, increment } from './store';
-import './index.scss';
+import store from './store';
+import { setLanguage } from './language.actions';
+import { setUser, removeUser } from './user.actions';
+import { addProduct, removeProduct } from './cart.actions';
 
-const decrementButton = document.querySelector('[data-action="decrement"]');
-const incrementButton = document.querySelector('[data-action="increment"]');
-const resetButton = document.querySelector('[data-action="reset"]');
-const counterResult = document.querySelector('.counter__result');
+store.dispatch(setLanguage('jp'));
+store.dispatch(setUser({ id: 1, name: 'Tom' }));
+store.dispatch(setUser({ id: 2, name: 'Ignat' }));
+store.dispatch(removeUser());
+store.dispatch(addProduct({ id: 1, name: 'milk' }));
+store.dispatch(addProduct({ id: 2, name: 'meat' }));
+store.dispatch(addProduct({ id: 3, name: 'coffee' }));
+store.dispatch(removeProduct(1));
 
-const onDecrement = () => store.dispatch(decrement());
-const onIncrement = () => store.dispatch(increment());
-
-decrementButton.addEventListener('click', onDecrement);
-incrementButton.addEventListener('click', onIncrement);
-
-store.subscribe(() => {
-  const state = store.getState();
-  counterResult.textContent = state;
-});
+console.log(store.getState());

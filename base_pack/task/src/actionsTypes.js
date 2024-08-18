@@ -1,0 +1,7 @@
+export const SET_LANGUAGE = 'SET_LANGUAGE/LANGUAGE';
+
+export const ADD_PRODUCT = 'ADD_PRODUCT/CART';
+export const REMOVE_PRODUCT = 'REMOVE_PRODUCT/CART';
+
+export const SET_USER = 'SET_USER/USER';
+export const REMOVE_USER = 'REMOVE_USER/USER';
