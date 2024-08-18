@@ -1,3 +1,5 @@
+import { SET_LANGUAGE } from './actionsTypes';
+
 const initialState = {
   language: 'en',
 };
