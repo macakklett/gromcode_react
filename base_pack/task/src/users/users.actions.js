@@ -1,15 +1,8 @@
-import { ADD_USER, DELETE_USER } from './actionTypes';
+import { CHANGE_CURRENT_PAGE } from './actionTypes';
 
-export const addUser = user => {
+export const changeCurrentPage = direction => {
   return {
-    type: ADD_USER,
-    payload: user,
-  };
-};
-
-export const deleteUser = userId => {
-  return {
-    type: DELETE_USER,
-    payload: userId,
+    type: CHANGE_CURRENT_PAGE,
+    payload: direction,
   };
 };

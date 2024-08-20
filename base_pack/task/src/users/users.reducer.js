@@ -1,18 +1,22 @@
-import { ADD_USER, DELETE_USER } from './actionTypes';
+import { CHANGE_CURRENT_PAGE } from './actionTypes';
+import { users as usersFromLocalStore } from './users';
 
 const initialState = {
-  usersList: [],
+  users: {
+    usersList: usersFromLocalStore,
+    currentPage: 0,
+  },
 };
 
 export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_USER:
-      return { ...state, usersList: [...state.usersList, action.payload] };
-
-    case DELETE_USER:
+    case CHANGE_CURRENT_PAGE:
       return {
         ...state,
-        usersList: [...state.usersList.filter(user => user.id !== action.payload)],
+        users: {
+          ...state.users,
+          currentPage: state.users.currentPage + action.payload,
+        },
       };
 
     default:
