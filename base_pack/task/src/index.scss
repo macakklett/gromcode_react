@@ -13,37 +13,38 @@ body {
   align-items: center;
 }
 
-.transfer-list {
-  display: flex;
+.users {
+  list-style-type: none;
+  padding: 0;
 }
 
-.options {
-  width: 260px;
-  padding: 16px;
+.user {
+  margin: 8px;
+  width: 150px;
+  display: flex;
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    padding: 0;
-    margin: 16px 0;
+  &__age {
+    font-weight: 700;
+    opacity: 0.5;
+    margin-left: auto;
   }
+}
 
-  &__title {
-    text-align: center;
-    background-color: #000;
-    color: #fff;
-    border-radius: 8px;
-    line-height: 24px;
-  }
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  &__list-item {
-    background: transparent;
-    margin: 8px 0;
-    width: 100%;
-    outline: none;
-    cursor: pointer;
-    line-height: 24px;
-    border-radius: 8px;
-  }
+.btn {
+  height: 32px;
+  color: #fff;
+  border-radius: 8px;
+  width: 64px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  padding: 8px;
+  cursor: pointer;
+  background-color: green;
 }
