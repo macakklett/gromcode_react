@@ -1,25 +1,28 @@
-import { CHANGE_CURRENT_PAGE } from './actionTypes';
-import { users as usersFromLocalStore } from './users';
+import { SET_USER, SHOW_SPINNER } from './actionTypes';
 
 const initialState = {
-  users: {
-    usersList: usersFromLocalStore,
-    currentPage: 0,
-  },
+  userData: null,
+  isFetching: false,
 };
 
-export const usersReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_CURRENT_PAGE:
+    case SET_USER:
       return {
         ...state,
-        users: {
-          ...state.users,
-          currentPage: state.users.currentPage + action.payload,
-        },
+        userData: action.payload.user,
+        isFetching: false,
+      };
+
+    case SHOW_SPINNER:
+      return {
+        ...state,
+        isFetching: true,
       };
 
     default:
       return state;
   }
 };
+
+export default userReducer;
