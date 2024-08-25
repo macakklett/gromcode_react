@@ -5,11 +5,11 @@ export const getUser = async userId => {
     const response = await fetch(`${baseURL}/${userId}`);
 
     if (!response.ok) {
-      throw new Error('Failed to getting user');
+      throw new Error('Failed request');
     }
 
     return await response.json();
   } catch (error) {
-    console.error('Error deleting event:', error);
+    console.error('Error:', error);
   }
 };
