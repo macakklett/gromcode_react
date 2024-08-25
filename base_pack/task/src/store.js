@@ -1,44 +1,15 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import counterReducer from './counter.reducer';
 
-const INCREMENT = 'COUNTER/INCREMENT';
-const DECREMENT = 'COUNTER/DECREMENT';
-const RESET = 'RESET/DECREMENT';
-
-export const increment = () => {
-  return {
-    type: INCREMENT,
-  };
+const logger = store => next => action => {
+  console.group(action.type);
+  console.info('dispatching', action); // action
+  let result = next(action);
+  console.log('next state', store.getState()); // 'new state'
+  console.groupEnd();
+  return result;
 };
 
-export const decrement = () => {
-  return {
-    type: DECREMENT,
-  };
-};
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const reset = () => {
-  return {
-    type: RESET,
-  };
-};
-
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-
-    case DECREMENT:
-      return state - 1;
-
-    case RESET:
-      return 0;
-
-    default:
-      return state;
-  }
-};
-
-export const store = createStore(
-  counterReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+export const store = createStore(counterReducer, composeEnhancers(applyMiddleware(logger)));
