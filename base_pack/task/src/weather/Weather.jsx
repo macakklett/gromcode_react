@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { citiesListSelector } from './weather.selectors';
-import { fetchCitiesWeatherDataList } from './weather.actions';
+import { getWeatherData } from './weather.actions';
 
-const Weather = ({ citiesList, fetchCitiesWeatherDataList }) => {
+const Weather = ({ citiesList, getWeatherData }) => {
   useEffect(() => {
-    fetchCitiesWeatherDataList();
+    getWeatherData();
   }, []);
 
   return (
@@ -30,7 +30,7 @@ const mapState = state => {
 };
 
 const mapDispatch = {
-  fetchCitiesWeatherDataList,
+  getWeatherData,
 };
 
 export default connect(mapState, mapDispatch)(Weather);

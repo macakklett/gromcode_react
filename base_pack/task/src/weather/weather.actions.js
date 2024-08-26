@@ -8,6 +8,6 @@ export const setCitiesWeatherDataList = cities => {
   };
 };
 
-export const fetchCitiesWeatherDataList = () => dispatch => {
+export const getWeatherData = () => dispatch => {
   getWeather().then(cities => dispatch(setCitiesWeatherDataList(cities)));
 };
