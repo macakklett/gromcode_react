@@ -1,12 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Weather from './weather/Weather';
+import UserInfo from './users/UserInfo';
+import SearchField from './users/SearchField';
 import store from './store';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Weather />
+      <div className="page">
+        <UserInfo />
+        <SearchField />
+      </div>
     </Provider>
   );
 };
