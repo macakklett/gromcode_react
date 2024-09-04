@@ -3,6 +3,13 @@ import Login from './Login';
 import Logout from './Logout';
 import Spinner from './Spinner';
 
+// REACT APPROACH (!!!)
+// 1. Divide the UI into components +++
+// header, footer, main (text, table (row), navigation)
+// 2. Build static version in React +++
+// 3. Think about props, state (where, which) +++
+// 4. Write logic in JS/TS (80% JS, 20% JS)
+
 export class Auth extends Component {
   state = {
     isLoggedIn: false,
