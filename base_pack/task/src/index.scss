@@ -7,34 +7,45 @@ body {
 }
 
 #root {
-  display: flex;
   height: 100vh;
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.weather {
-  width: 100%;
-  max-width: 300px;
+.login {
+  background-color: green;
+}
 
-  &__title {
-    word-spacing: 16px;
-    font-weight: 300;
+.logout {
+  background-color: cornflowerblue;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.cities-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.spinner {
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-left-color: transparent;
+  animation: spin 0.5s infinite linear;
+  border-radius: 50%;
 }
 
-.city {
-  display: flex;
-  line-height: 32px;
-
-  &__temperature {
-    margin-left: auto;
-  }
+.btn {
+  height: 48px;
+  color: #fff;
+  border-radius: 8px;
+  width: 120px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  padding: 8px;
+  cursor: pointer;
 }

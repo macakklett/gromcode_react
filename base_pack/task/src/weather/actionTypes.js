@@ -1,1 +1,0 @@
-export const SHOW_CITIES = 'WEATHER/SHOW_CITIES';
