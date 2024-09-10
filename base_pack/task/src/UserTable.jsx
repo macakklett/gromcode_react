@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Pagination from './Pagination';
-import User from './User';
+import UsersList from './UsersList';
 
 export class UserTable extends Component {
   itemsPerPage = 3;
@@ -27,11 +27,7 @@ export class UserTable extends Component {
           totalItems={this.props.users.length}
           itemsPerPage={this.itemsPerPage}
         />
-        <ul className="users">
-          {currentList.map(user => (
-            <User key={user.id} {...user} />
-          ))}
-        </ul>
+        <UsersList list={currentList} />
       </div>
     );
   }
