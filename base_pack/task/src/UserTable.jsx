@@ -9,8 +9,8 @@ export class UserTable extends Component {
     currentPage: 1,
   };
 
-  goPrev = () => this.setState({ currentPage: this.state.currentPage - 1 });
-  goNext = () => this.setState({ currentPage: this.state.currentPage + 1 });
+  changeCurrentPage = direction =>
+    this.setState({ currentPage: this.state.currentPage + direction });
 
   render() {
     const currentUserIndex = this.itemsPerPage * (this.state.currentPage - 1);
@@ -22,8 +22,7 @@ export class UserTable extends Component {
     return (
       <div>
         <Pagination
-          goPrev={this.goPrev}
-          goNext={this.goNext}
+          changeCurrentPage={this.changeCurrentPage}
           currentPage={this.state.currentPage}
           totalItems={this.props.users.length}
           itemsPerPage={this.itemsPerPage}
